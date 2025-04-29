@@ -1,0 +1,5 @@
+model_id: Qwen/Qwen2.5-VL-7B-Instruct
+module_name: models.qwen
+class_name: Qwen2_5VL
+max_new_tokens: 256
+temperature: 0

@@ -1,0 +1,18 @@
+{
+  "query": "Find model architecture diagrams, structure charts, neural network designs, or framework illustrations",
+  "model_structure_pages": [
+    "06_page.png",
+    "12_page.png",
+    "10_page.png"
+  ],
+  "scores": [
+    15.8828125,
+    15.721367835998535,
+    15.663482666015625
+  ],
+  "full_paths": [
+    "data/brainmvp/images/06_page.png",
+    "data/brainmvp/images/12_page.png",
+    "data/brainmvp/images/10_page.png"
+  ]
+}

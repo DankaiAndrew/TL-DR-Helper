@@ -1,0 +1,8 @@
+module_name: agents.base_agent
+class_name: Agent
+use_text: true
+use_image: true
+max_retries: 3
+
+system_prompt: ""
+

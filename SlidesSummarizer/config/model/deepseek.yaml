@@ -1,0 +1,6 @@
+model: deepseek-chat
+api_key: 
+api_url: https://api.deepseek.com/v1
+module_name: models.deepseek
+class_name: DeepSeekAPI 
+temperature: 0

@@ -1,0 +1,6 @@
+model: gpt-4o
+api_key: 
+module_name: models.openai
+class_name: MyOpenAI
+max_new_tokens: 256
+temperature: 0

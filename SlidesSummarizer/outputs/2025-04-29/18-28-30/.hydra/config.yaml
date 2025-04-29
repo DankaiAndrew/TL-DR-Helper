@@ -1,0 +1,15 @@
+paper_name: mdoc
+cuda_visible_devices: '0'
+truncate_len: null
+save_freq: 10
+save_message: false
+agents:
+- agent: image_agent
+  model: openai
+- agent: text_agent
+  model: openai
+- agent: general_agent
+  model: openai
+sum_agent:
+  agent: sum_agent
+  model: deepseek

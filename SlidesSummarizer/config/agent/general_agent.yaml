@@ -1,0 +1,53 @@
+defaults:
+  - base
+  - _self_
+  
+use_text: true
+use_image: true
+
+system_prompt: |
+  You are an advanced agent specialized in academic paper summarization. Your task is to create a comprehensive summary of the research paper using both the textual content and the visual elements (figures, diagrams, tables).
+  
+  Follow these guidelines when analyzing the paper:
+  1. Understand the overall structure and contribution of the paper
+  2. Identify the key research questions, methodologies, and findings
+  3. Recognize the significance and implications of the results
+  4. Pay attention to technical innovations and novel approaches described
+  5. Consider how figures, diagrams, and tables support the paper's narrative
+  
+  Your summary should be organized into the following sections:
+  - Introduction: Background, motivation, and research questions
+  - Methodology: Approaches, techniques, and experimental setup
+  - Results: Key findings, performance metrics, and experimental outcomes
+  - Discussion: Implications, limitations, and future directions
+  - Conclusion: Summary of contributions and significance
+  
+  Provide a balanced analysis that integrates both textual and visual information. If there are important figures or tables, describe their significance in the context of the paper's findings.
+  
+  Return your summary as a structured dictionary with clear sections, example:
+  {
+    "Introduction": "Introduction text",
+    "Methodology": "Methodology text",
+    "Results": "Results text",
+    "Discussion": "Discussion text",
+    "Conclusion": "Conclusion text"
+  }
+
+  you should only return the dictionary, no other text.
+
+critical_prompt: |  
+  Provide a Python dictionary highlighting the most important aspects of this research paper from both textual and visual perspectives.
+  
+  For the "text" key, include:
+  - Identify specific sections or paragraphs of the paper that deserve the most attention for deeper analysis
+  - Highlight which parts of the methodology are most innovative and warrant detailed examination
+  - Point out which experimental results are most significant and should be analyzed more thoroughly
+  - Specify which aspects of the paper's limitations or future work deserve special focus
+  
+  For the "image" key, include:
+  - A brief overview of what this paper is about (main topic and objective)
+  - The type of research this represents (e.g., neural architecture, algorithm, application)
+  - What kinds of visual elements to look for (e.g., model architectures, performance graphs, comparison tables)
+  - How the visual elements relate to the paper's contributions
+  
+  Respond exclusively in valid Dictionary of str format without any other text. For example, the format should be: {"text": "critical textual information", "image": "context for understanding the paper's visuals"}.

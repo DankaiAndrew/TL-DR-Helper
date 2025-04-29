@@ -1,0 +1,21 @@
+# 必需参数 - 通过命令行提供: python scripts/predict.py paper_name=YOUR_PAPER_NAME
+paper_name: ???  # 使用???表示这是必需参数
+
+cuda_visible_devices: '0'
+truncate_len: null # Used for debugging; set to null for normal use
+save_freq: 10 # Frequency of saving checkpoints
+save_message: false # Set to true to record responses from all agents
+
+agents:
+  - agent: image_agent # Configures prompt and controls whether to use text/image as reference material
+    model: openai # Configures the model to use
+  - agent: text_agent
+    model: openai
+  - agent: general_agent
+    model: openai
+
+sum_agent:
+  agent: sum_agent # Responsible for summarizing answers from all agents
+  model: deepseek
+
+
