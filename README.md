@@ -2,6 +2,15 @@
 
 For researchers managing extensive literature reviews and paper collections, creating and maintaining presentation slides for each paper is a time-consuming task. To address this challenge, we propose a specialized multi-agent framework that automatically transforms academic papers into concise one page summaries. These summaries can be integrated into comprehensive paper collection presentations, significantly enhancing researchers' ability to organize, present, and share knowledge. 
 
+## Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone git@github.com:DankaiAndrew/TL-DR-Helper.git
+cd TL-DR-Helper
+```
+
 ## Node.js Environment Setup
 
 This project requires [Node.js](https://nodejs.org/) (LTS version recommended).
@@ -100,7 +109,7 @@ Open the URL displayed in the terminal to access the backend.
 
 ## System Architecture
 
-![SlidesSummarizer Architecture](SlidesSummarizer/slidessummarizer.png)
+![SlidesSummarizer Architecture](./SlidesSummarizer/slidessummarizer.png)
 
 Our multi-agent system consists of five specialized agents working in concert to analyze and summarize research papers:
 
