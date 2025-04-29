@@ -92,6 +92,7 @@ Open a new terminal and run:
 
 ```bash
 cd frontend_5260
+npm install
 npm run dev
 ```
 

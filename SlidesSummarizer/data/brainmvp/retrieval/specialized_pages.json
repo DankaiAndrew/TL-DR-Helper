@@ -7,9 +7,9 @@
       "10_page.png"
     ],
     "scores": [
-      15.8828125,
-      15.721367835998535,
-      15.663482666015625
+      15.903066635131836,
+      15.754068374633789,
+      15.615718841552734
     ],
     "full_paths": [
       "data/brainmvp/images/06_page.png",
@@ -20,18 +20,18 @@
   "experiment_results": {
     "query": "Find experimental results, data tables, performance charts, evaluation metrics, or comparison graphs",
     "experiment_results_pages": [
-      "09_page.png",
       "13_page.png",
+      "09_page.png",
       "07_page.png"
     ],
     "scores": [
-      18.062496185302734,
-      17.924381256103516,
-      17.859554290771484
+      18.159996032714844,
+      18.055191040039062,
+      17.826595306396484
     ],
     "full_paths": [
-      "data/brainmvp/images/09_page.png",
       "data/brainmvp/images/13_page.png",
+      "data/brainmvp/images/09_page.png",
       "data/brainmvp/images/07_page.png"
     ]
   }
