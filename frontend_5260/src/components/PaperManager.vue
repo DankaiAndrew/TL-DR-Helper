@@ -18,6 +18,8 @@ const existingPptData = reactive({
   themes: {},
 });
 const selectedExistingTheme = ref("");
+const newExistingThemeName = ref("");
+const showNewThemeForm = ref(false);
 
 // PDF file handling
 const handlePdfChange = (file) => {
@@ -28,6 +30,10 @@ const handlePdfChange = (file) => {
     ElMessage.error("Please select a PDF file");
   }
   return false; // Prevent automatic upload
+};
+
+const handlePdfRemove = (file) => {
+  pdfFile.value = "";
 };
 
 // PPT file handling
@@ -141,9 +147,26 @@ const addToExistingTheme = () => {
   }
 };
 
+// Add new theme to existing PPT
+const addNewThemeToExistingPpt = () => {
+  if (
+    newExistingThemeName.value &&
+    !existingPptData.themes[newExistingThemeName.value]
+  ) {
+    existingPptData.themes[newExistingThemeName.value] = [];
+    newExistingThemeName.value = "";
+    ElMessage.success("New theme added successfully");
+  } else if (existingPptData.themes[newExistingThemeName.value]) {
+    ElMessage.warning("Theme already exists");
+  } else {
+    ElMessage.warning("Please enter a theme name");
+  }
+};
+
 // Generate updated PPT
 const generateUpdatedPpt = async () => {
   try {
+    console.log(existingPptData);
     const response = await fetch("http://localhost:8000/generate-ppt", {
       method: "POST",
       headers: {
@@ -228,6 +251,7 @@ const generatePpt = async () => {
               drag
               :auto-upload="false"
               :on-change="handlePdfChange"
+              :on-remove="handlePdfRemove"
               accept=".pdf"
             >
               <el-icon class="el-icon--upload"><upload-filled /></el-icon>
@@ -283,6 +307,44 @@ const generatePpt = async () => {
               </el-button>
             </div>
 
+             <!-- Add New Theme Option -->
+            <el-form
+              v-if="Object.keys(existingPptData.themes).length"
+              class="theme-form"
+            >
+              <el-form-item label="Add New Theme">
+                <el-switch
+                  v-model="showNewThemeForm"
+                  active-text="Yes"
+                  inactive-text="No"
+                />
+              </el-form-item>
+            </el-form>
+
+            <!-- Add New Theme Form -->
+            <el-form
+              v-if="
+                Object.keys(existingPptData.themes).length && showNewThemeForm
+              "
+              class="theme-form"
+            >
+              <el-form-item label="New Theme Name">
+                <el-input
+                  v-model="newExistingThemeName"
+                  placeholder="Enter new theme name"
+                />
+              </el-form-item>
+              <el-form-item>
+                <el-button
+                  type="success"
+                  @click="addNewThemeToExistingPpt"
+                  class="theme-button"
+                >
+                  Add New Theme
+                </el-button>
+              </el-form-item>
+            </el-form>
+
             <!-- Theme Selection for Existing PPT -->
             <el-form
               v-if="Object.keys(existingPptData.themes).length"
@@ -306,7 +368,9 @@ const generatePpt = async () => {
                 <el-button
                   type="primary"
                   @click="addToExistingTheme"
-                  :disabled="!selectedExistingTheme || !paperSummary"
+                  :disabled="
+                    !selectedExistingTheme || !paperSummary || !pdfFile
+                  "
                   class="theme-button"
                 >
                   Add to Selected Theme
@@ -358,6 +422,7 @@ const generatePpt = async () => {
                 type="success"
                 @click="generateUpdatedPpt"
                 class="generate-button"
+                :disabled="!pdfFile"
               >
                 Generate Updated PPT
               </el-button>
@@ -379,7 +444,7 @@ const generatePpt = async () => {
                 />
               </el-form-item>
               <el-form-item label="Paper Name" v-if="paperName">
-                <el-input v-model="paperName" />
+                <el-input v-model="paperName" disabled />
               </el-form-item>
               <el-form-item label="New Theme">
                 <el-input
@@ -432,7 +497,7 @@ const generatePpt = async () => {
               <el-button
                 type="success"
                 @click="generatePpt"
-                :disabled="!Object.keys(pptData.themes).length"
+                :disabled="!Object.keys(pptData.themes).length || !pdfFile"
                 class="generate-button"
               >
                 Generate New PPT

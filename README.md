@@ -107,7 +107,7 @@ Open the URL displayed in the terminal to access the frontend.
 Open another terminal and run:
 
 ```bash
-uvicorn backend_5260.main:app --reload
+uvicorn backend_5260.main:app --reload --port 8000
 ```
 
 Open the URL displayed in the terminal to access the backend.
