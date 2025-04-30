@@ -114,7 +114,7 @@ Open the URL displayed in the terminal to access the backend.
 
 ## System Architecture
 
-![SlidesSummarizer Architecture](./slidessummarizer.png)
+![SlidesSummarizer Architecture](./slidessummarizer.jpg)
 
 Our multi-agent system consists of five specialized agents working in concert to analyze and summarize research papers:
 
