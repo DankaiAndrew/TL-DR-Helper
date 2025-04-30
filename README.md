@@ -2,6 +2,10 @@
 
 For researchers managing extensive literature reviews and paper collections, creating and maintaining presentation slides for each paper is a time-consuming task. To address this challenge, we propose a specialized multi-agent framework that automatically transforms academic papers into concise one page summaries. These summaries can be integrated into comprehensive paper collection presentations, significantly enhancing researchers' ability to organize, present, and share knowledge. 
 
+## Video Demonstration
+
+You can watch the video demonstration of our project here: [Project Video](https://youtu.be/ux1_VWRCBhQ)
+
 ## System Requirements
 
 This framework requires approximately 6-7GB of VRAM to run efficiently. Please ensure your system meets these requirements before proceeding with the installation.
