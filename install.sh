@@ -6,8 +6,8 @@
 pip install --upgrade pip
 
 # Install PyTorch
-#pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
-pip install  torch torchvision torchaudio
+#pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128 
+pip install torch==2.4 torchvision torchaudio
 
 # Install Hugging Face Transformers (specific commit)
 pip install git+https://github.com/huggingface/transformers@51ed61e2f05176f81fa7c9decba10cc28e138f61
@@ -22,7 +22,7 @@ pip install hydra-core
 
 # Install Colpali
 pip install colpali_engine==0.1.1
-pip install mteb
+pip install mteb==1.2.0
 
 # Install git-lfs
 conda install git-lfs -y
